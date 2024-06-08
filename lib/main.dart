@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_statemanagement/resources/routes/routes.dart';
 import 'package:flutter_getx_statemanagement/view/splash_screen.dart';
 import 'package:get/get.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      getPages: AppRoutes.appRoute(),
       home: SplashScreen(),
     );
   }
