@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_statemanagement/resources/localizations/languages.dart';
 import 'package:flutter_getx_statemanagement/resources/routes/routes.dart';
 import 'package:flutter_getx_statemanagement/view/splash_screen.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'MVVM',
+      translations: Languages(),
+      locale: Locale('en', 'US'),
+      fallbackLocale: Locale('en', 'US'),
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
