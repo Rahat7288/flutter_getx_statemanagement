@@ -1,4 +1,5 @@
 import 'package:flutter_getx_statemanagement/resources/routes/routes_name.dart';
+import 'package:flutter_getx_statemanagement/view/login/login_view.dart';
 import 'package:flutter_getx_statemanagement/view/splash_screen.dart';
 import 'package:get/get.dart';
 
@@ -7,6 +8,11 @@ class AppRoutes {
         GetPage(
           name: RoutesName.splashScreen,
           page: () => SplashScreen(),
+          transition: Transition.leftToRightWithFade,
+        ),
+        GetPage(
+          name: RoutesName.loginView,
+          page: () => LoginView(),
           transition: Transition.leftToRightWithFade,
         ),
       ];
