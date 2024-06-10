@@ -16,7 +16,7 @@ class NetworkApiServices extends BaseApiServices {
     dynamic responseJson;
     try {
       final response =
-          await http.get(Uri.parse(url)).timeout(Duration(seconds: 10));
+          await http.get(Uri.parse(url)).timeout(const Duration(seconds: 10));
     } on SocketException {
       throw InternetException();
     } on RequestTimeOut {
@@ -37,7 +37,7 @@ class NetworkApiServices extends BaseApiServices {
       final response = await http
           .post(Uri.parse(url), body: convert.jsonEncode(data))
           .timeout(
-            Duration(seconds: 10),
+            const Duration(seconds: 10),
           );
     } on SocketException {
       throw InternetException();
@@ -58,8 +58,7 @@ class NetworkApiServices extends BaseApiServices {
 
       default:
         throw FetchDataExceptions(
-            'error while communication with server status code : ' +
-                response.statusCode.toString());
+            'error while communication with server status code : ${response.statusCode}');
     }
   }
 }
