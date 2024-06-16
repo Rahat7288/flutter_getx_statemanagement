@@ -17,6 +17,7 @@ class NetworkApiServices extends BaseApiServices {
     try {
       final response =
           await http.get(Uri.parse(url)).timeout(const Duration(seconds: 10));
+      responseJson = returnResponse(response);
     } on SocketException {
       throw InternetException();
     } on RequestTimeOut {
@@ -39,6 +40,7 @@ class NetworkApiServices extends BaseApiServices {
           .timeout(
             const Duration(seconds: 10),
           );
+      responseJson = returnResponse(response);
     } on SocketException {
       throw InternetException();
     } on RequestTimeOut {
@@ -54,7 +56,9 @@ class NetworkApiServices extends BaseApiServices {
         dynamic responseJson = convert.jsonDecode(response.body);
         return responseJson;
       case 400:
-        throw InvalidUrlException();
+        // throw InvalidUrlException();
+        dynamic responseJson = convert.jsonDecode(response.body);
+        return responseJson;
 
       default:
         throw FetchDataExceptions(
